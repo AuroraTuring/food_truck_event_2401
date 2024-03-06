@@ -23,13 +23,11 @@ class Event
   end
 
   def sorted_item_list
-    # iterate through food_trucks
-    @food_trucks.map do |food_truck|
-      food_truck.inventory.map do |item|
+    @food_trucks.flat_map do |food_truck|
+      food_truck.inventory.keys.flat_map do |item|
         item.name
       end
-    end
-    require 'pry'; binding.pry
+    end.uniq.sort
   end
 
 end
