@@ -17,10 +17,10 @@ class FoodTruck
 
   def potential_revenue
     @inventory.sum do |item, quantity|
-    (item.price * quantity)
+    item.price * quantity
     end
     # total_sum = @inventory.map do |item, quantity|
-    # (item.price * quantity)
+    # item.price * quantity
     # end
     # total_sum.sum
   end
