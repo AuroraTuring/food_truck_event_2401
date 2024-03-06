@@ -1,15 +1,15 @@
-Graded Items:
+## Iteration 3 - Items sold at the Event
 
-1. Create an Event with attributes: `Event.new`
-1. Add a FoodTruck to an Event: `Event #add_food_truck`
-1. Return the list of FoodTruck names for an Event: `Event #food_truck_names`
-1. Return the list of FoodTrucks that sell a given Item for an Event: `Event #food_trucks_that_sell`
-1. Return the potential revenue from a FoodTruck: `FoodTruck #potential_revenue`
+Use TDD to update the `Event` class so that it adds the following functionality:
 
-A `FoodTruck` will be able to calculate their `potential_revenue` - the sum of all their items' price * quantity.
 
-A `Event` is responsible for keeping track of `FoodTruck`s. It should have a method called `food_truck_names` that returns an array of all the `FoodTruck` names.
+1. An `Event` can return a list of *names* of all items the `FoodTrucks` have in stock, sorted alphabetically. This list should not include any duplicate items.
+1. An `Event` can return a hash of total inventory that reports the available inventory of all items sold at the event. Specifically, it should include:
+    - All items available for sale, and each item should identify the total inventory/quantity for that item, as well as a list of `FoodTruck`s that sell that item.
+1. Return a list of overstocked Items for an `Event`. An item is overstocked if it is sold by more than 1 food truck AND the total quantity is greater than 50.
 
-Additionally, the `Event` should have a method called `food_trucks_that_sell` that takes an argument of an item represented as a `String`. It will return a list of `FoodTruck`s that have that item in stock.
-
-Use TDD to create a `Event` class that responds to the following interaction pattern:
+| Method Name               |      Return Value (type)
+| ------------------------- | ---------------------------
+| `sorted_item_list`        | Alphabetically sorted `Array` of all `FoodTruck` item <u>names</u> (no duplicates!). Array of Strings.
+| `total_inventory`         | `Hash` with `Item`s as keys and a sub-hash as the value. The sub-hash should have `quantity` and `food_trucks` keys.(See example below)
+| `overstock_items`         | `Array` of `Item` objects
