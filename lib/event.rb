@@ -22,4 +22,14 @@ class Event
     end
   end
 
+  def sorted_item_list
+    # iterate through food_trucks
+    @food_trucks.map do |food_truck|
+      food_truck.inventory.map do |item|
+        item.name
+      end
+    end
+    require 'pry'; binding.pry
+  end
+
 end
